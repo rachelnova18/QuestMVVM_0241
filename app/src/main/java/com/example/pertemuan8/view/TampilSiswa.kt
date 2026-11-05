@@ -26,7 +26,15 @@ import com.example.pertemuan8.model.Siswa
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TampilSiswa(){
+fun TampilSiswa(
+    statusUiSiswa: Siswa
+){
+    val items = listOf(
+        Pair(stringResource(R.string.nama), statusUiSiswa.nama),
+        Pair(stringResource(id = R.string.gender),statusUiSiswa.gender),
+        Pair(stringResource(R.string.alamat), statusUiSiswa.alamat)
+    )
+
     Scaffold(modifier = Modifier,
         {
             TopAppBar(
