@@ -42,6 +42,21 @@ fun TampilSiswa(
                 colors = TopAppBarDefaults.mediumTopAppBarColors(colorResource(id = R.color.purple_500)),
             )
         }) { isiRuang ->
+        // Sisipkan seluruh blok Column ini ke dalam Scaffold
+        Column(
+            modifier = Modifier.padding(isiRuang),
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
+            Column(
+                modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium)),
+                verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
+            ) {
+                items.forEach { item ->
+                    // <-- Nanti styling (Commit 4) ditaruh di sini
+                }
 
+                // <-- Nanti tombol (Commit 5) ditaruh di sini
+            }
+        }
     }
 }
