@@ -52,7 +52,12 @@ fun TampilSiswa(
                 verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
             ) {
                 items.forEach { item ->
-                    // <-- Nanti styling (Commit 4) ditaruh di sini
+                    // Sisipkan bagian ini ke dalam forEach
+                    Column {
+                        Text(item.first.uppercase(), fontSize = 16.sp)
+                        Text(text = item.second, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                    }
+                    Divider(thickness = dimensionResource(R.dimen.thickness_divider))
                 }
 
                 // <-- Nanti tombol (Commit 5) ditaruh di sini
