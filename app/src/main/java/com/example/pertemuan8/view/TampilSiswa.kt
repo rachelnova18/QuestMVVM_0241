@@ -27,8 +27,11 @@ import com.example.pertemuan8.model.Siswa
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TampilSiswa(
-    statusUiSiswa: Siswa
+    //edit 1 : parameter statusUiSiswa
+    statusUiSiswa: Siswa,
+    onBackButtonClicked:()-> Unit
 ){
+    //edit 2 : items Pair
     val items = listOf(
         Pair(stringResource(R.string.nama), statusUiSiswa.nama),
         Pair(stringResource(id = R.string.gender),statusUiSiswa.gender),
@@ -42,7 +45,6 @@ fun TampilSiswa(
                 colors = TopAppBarDefaults.mediumTopAppBarColors(colorResource(id = R.color.purple_500)),
             )
         }) { isiRuang ->
-        // Sisipkan seluruh blok Column ini ke dalam Scaffold
         Column(
             modifier = Modifier.padding(isiRuang),
             verticalArrangement = Arrangement.SpaceBetween
@@ -52,18 +54,19 @@ fun TampilSiswa(
                 verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
             ) {
                 items.forEach { item ->
-                    // Sisipkan bagian ini ke dalam forEach
                     Column {
                         Text(item.first.uppercase(), fontSize = 16.sp)
                         Text(text = item.second, fontWeight = FontWeight.Bold, fontSize = 16.sp)
                     }
                     Divider(thickness = dimensionResource(R.dimen.thickness_divider))
                 }
-                // 1. Tambahkan parameter onBackButtonClicked
-                fun TampilSiswa(
-                    statusUiSiswa: Siswa,
-                    onBackButtonClicked:()-> Unit // Tambahkan baris ini
-                ){
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = onBackButtonClicked
+                ) {
+                    Text(stringResource(R.string.back))
+                }
             }
         }
     }
