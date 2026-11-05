@@ -59,8 +59,11 @@ fun TampilSiswa(
                     }
                     Divider(thickness = dimensionResource(R.dimen.thickness_divider))
                 }
-
-                // <-- Nanti tombol (Commit 5) ditaruh di sini
+                // 1. Tambahkan parameter onBackButtonClicked
+                fun TampilSiswa(
+                    statusUiSiswa: Siswa,
+                    onBackButtonClicked:()-> Unit // Tambahkan baris ini
+                ){
             }
         }
     }
